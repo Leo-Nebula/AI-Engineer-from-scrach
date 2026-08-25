@@ -1,0 +1,99 @@
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/9_Persistence.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 17,132
+11-langgraph/01-project-Complete-Agentic-AI-Course/03-LangChain-Multi-Agent-Research-System/README.md
+  s_97f8ff4f7c0a14::t_e7c3b2747fbc68 5,7,28,114-115,128,150
+  s_97f8ff4f7c0a14::t_83bacca6518136 13,85,126
+  s_97f8ff4f7c0a14::t_571bc66674ecd2 144-145
+11-langgraph/01-project-Complete-Agentic-AI-Course/03-LangChain-Multi-Agent-Research-System/src/agents/agents.py
+  s_97f8ff4f7c0a14::t_1ba00daf84fe16 13,15
+11-langgraph/02-Agentic-Chatbot-using-LangGraph/README.md
+  s_97f8ff4f7c0a14::t_e7c3b2747fbc68 7,42,80,83
+  s_97f8ff4f7c0a14::t_571bc66674ecd2 32-33
+  s_97f8ff4f7c0a14::t_83bacca6518136 5,135,205
+11-langgraph/03-project-TripMate-AI-A-Multi-Agent-Travel-Planner-with-LangGraph/backend/tools/flight_tool.py
+  s_97f8ff4f7c0a14::t_2a8688e3eda611 521
+  s_97f8ff4f7c0a14::t_13f2f8136c5b98 461-515
+11-langgraph/02-Agentic-Chatbot-using-LangGraph/backend/llm.py
+  s_97f8ff4f7c0a14::t_1ba00daf84fe16 22-24,29
+11-langgraph/03-project-TripMate-AI-A-Multi-Agent-Travel-Planner-with-LangGraph/backend/agents/flight.py
+  s_97f8ff4f7c0a14::t_4a2767fbbbd639 12,14
+11-langgraph/01-project-Complete-Agentic-AI-Course/README.md
+  s_97f8ff4f7c0a14::t_83bacca6518136 38
+  s_97f8ff4f7c0a14::t_571bc66674ecd2 37,39-40
+  s_97f8ff4f7c0a14::t_e7c3b2747fbc68 41,76,95-96
+11-langgraph/.env.example
+  s_97f8ff4f7c0a14::t_1ba00daf84fe16 2-3
+  s_97f8ff4f7c0a14::t_235f4149820671 1
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/7_Review_workflow.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 17,144
+11-langgraph/03-project-TripMate-AI-A-Multi-Agent-Travel-Planner-with-LangGraph/backend/tools/langchain_tools.py
+  s_97f8ff4f7c0a14::t_2a8688e3eda611 11,14,21
+11-langgraph/03-project-TripMate-AI-A-Multi-Agent-Travel-Planner-with-LangGraph/requirements.txt
+  s_97f8ff4f7c0a14::t_4a4edb82de9104 11
+11-langgraph/03-project-TripMate-AI-A-Multi-Agent-Travel-Planner-with-LangGraph/backend/llm.py
+  s_97f8ff4f7c0a14::t_1ba00daf84fe16 12
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/12_subgraph_shared.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 17,158
+11-langgraph/03-project-TripMate-AI-A-Multi-Agent-Travel-Planner-with-LangGraph/README.md
+  s_97f8ff4f7c0a14::t_e7c3b2747fbc68 18-19,35,52,67,219,221,360,369
+  s_97f8ff4f7c0a14::t_571bc66674ecd2 75-76
+11-langgraph/02-Agentic-Chatbot-using-LangGraph/.env.example
+  s_97f8ff4f7c0a14::t_1ba00daf84fe16 3-4
+11-langgraph/01-project-Complete-Agentic-AI-Course/02-Langchain-Single-Agent/agent_demo.ipynb
+  s_97f8ff4f7c0a14::t_3e5e9715b3e753 10,14,44,85,101,131,153,161,163,173-181,191,204,206-213,216-220,231
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 38,252,263,267
+  s_97f8ff4f7c0a14::t_89df1dcfd80f5a 92,95,116,136,139,168,171,196,236,239,257,286,289,307,331,363,397,400,408,411
+11-langgraph/02-Agentic-Chatbot-using-LangGraph/backend/tools/weather.py
+  s_97f8ff4f7c0a14::t_98548bb6ed47c8 10-33
+11-langgraph/03-project-TripMate-AI-A-Multi-Agent-Travel-Planner-with-LangGraph/.env.example
+  s_97f8ff4f7c0a14::t_1ba00daf84fe16 3-4
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/14-checkpoint_score.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 153
+11-langgraph/01-project-Complete-Agentic-AI-Course/03-LangChain-Multi-Agent-Research-System/src/tools/tools.py
+  s_97f8ff4f7c0a14::t_f1f2ef03807fb0 1,5-26,31-37
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/8_Iterative_Workflows.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 17,150
+11-langgraph/03-project-TripMate-AI-A-Multi-Agent-Travel-Planner-with-LangGraph/backend/tools/tavily_tool.py
+  s_97f8ff4f7c0a14::t_2a8688e3eda611 1-14
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/13_guardrails_crash_course.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 19,54,69,224
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/11_subgraphs.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 17,159,269
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/2_Simple_QA_LLM_Workflow.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 17,38,147
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/5_Essay_workflow.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 17,133,152,155
+11-langgraph/02-Agentic-Chatbot-using-LangGraph/backend/tools/search.py
+  s_97f8ff4f7c0a14::t_98548bb6ed47c8 1,3-13
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/10_HITL.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 17,41,131,229
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/3_Prompt_Chaining_Workflow.ipynb
+  s_97f8ff4f7c0a14::t_628dd84d69c8b1 17,130,149,152
+11-langgraph/01-project-Complete-Agentic-AI-Course/04-LangGraph-Code/README.md
+  s_97f8ff4f7c0a14::t_4a2767fbbbd639 45
+  s_97f8ff4f7c0a14::t_83bacca6518136 37
+  s_97f8ff4f7c0a14::t_571bc66674ecd2 42
+11-langgraph/01-project-Complete-Agentic-AI-Course/03-LangChain-Multi-Agent-Research-System/requirements.txt
+  s_97f8ff4f7c0a14::t_4a4edb82de9104 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "2c72a2fc874b499fb358a60b2dbf4070b99711e2",
+  "prompts": {},
+  "humans": {
+    "h_67284b7cc638ff": {
+      "author": "zzg <zhenguo.zhu@ly.com>"
+    }
+  },
+  "sessions": {
+    "s_97f8ff4f7c0a14": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a033f9-b1b7-75c0-8b32-04abfdec1f9d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zzg <zhenguo.zhu@ly.com>"
+    }
+  }
+}
