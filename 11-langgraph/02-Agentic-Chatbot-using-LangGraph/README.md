@@ -2,9 +2,9 @@
 
 基于 **LangGraph + Streamlit** 的 Agentic 聊天机器人。
 
-- **LLM**：`deepseek-v4-pro`（DeepSeek OpenAI 兼容 API）
+- **LLM**：`deepseek-v4-flash`（DeepSeek OpenAI 兼容 API）
 - **Embedding**：`sentence-transformers` 加载 `BAAI/bge-small-en-v1.5`（首次下载到 `models/`，之后本地加载）
-- **能力**：网页搜索 · 天气 · 股票行情 · PDF RAG · 计算器 · 股票购买 HITL 审批
+- **能力**：Mock 搜索 · Mock 天气 · 股票行情 · PDF RAG · 计算器 · 股票购买 HITL 审批
 - **记忆**：SQLite Checkpointer，多会话线程可切换恢复
 
 ---
@@ -29,17 +29,17 @@ pip install -r requirements.txt
 
 ```env
 DEEPSEEK_API_KEY=your-deepseek-api-key
-TAVILY_API_KEY=your-tavily-api-key
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-v4-flash
 
 # optional
-# DEEPSEEK_BASE_URL=https://api.deepseek.com
 # EMBEDDING_MODEL_NAME=BAAI/bge-small-en-v1.5
 # LOCAL_EMBEDDING_MODEL_DIR=models/bge-small-en-v1.5
 # LOG_LEVEL=INFO                                 # DEBUG / INFO / WARNING / ERROR
 # LOG_DIR=logs
 ```
 
-> 天气工具复用 `TAVILY_API_KEY`，通过 Tavily 搜索获取实时天气。
+> 搜索和天气工具使用本地 Mock 数据，不需要第三方 Key，也不代表实时信息。
 
 > Embedding **懒加载**：普通聊天不加载 `torch`；首次上传 PDF / 调用 RAG 时才会加载。  
 > 权重目录：`models/bge-small-en-v1.5/`（可提前：`python scripts/download_embedding_model.py`）。  
@@ -77,10 +77,10 @@ python -m streamlit run app.py
 │   ├── threads.py                 # 会话线程列表
 │   └── tools/                     # 工具包（按能力拆分）
 │       ├── __init__.py            # 汇总 tools / llm_with_tools
-│       ├── search.py              # Tavily 搜索
+│       ├── search.py              # Mock 搜索
 │       ├── calculator.py          # 数学计算
 │       ├── stock.py               # 股价查询 + HITL 购买
-│       └── weather.py             # Tavily 天气检索
+│       └── weather.py             # Mock 天气
 └── frontend/                      # Streamlit 前端
     ├── __init__.py
     ├── session.py                 # session / thread 管理
@@ -132,7 +132,7 @@ flowchart TB
     subgraph BE["⚙️ Backend · LangGraph"]
         direction TB
         Graph["graph.py"]
-        ChatNode["chat_node<br/>deepseek-v4-pro"]
+        ChatNode["chat_node<br/>deepseek-v4-flash"]
         ToolNode["ToolNode"]
         CKPT[("SQLite checkpointer")]
         RAG["rag.py + FAISS<br/>bge-small-en-v1.5"]
@@ -202,7 +202,7 @@ sequenceDiagram
     actor U as User
     participant UI as Streamlit UI
     participant G as LangGraph
-    participant L as deepseek-v4-pro
+    participant L as deepseek-v4-flash
     participant T as Tools
     participant H as HITL Panel
 

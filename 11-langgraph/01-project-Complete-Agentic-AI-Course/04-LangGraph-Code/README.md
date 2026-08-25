@@ -34,15 +34,15 @@ cd Agentic-Chatbot-using-LangGraph
 pip install -r requirements.txt
 ```
 
-在对应目录配置 `.env`（勿提交）。**Notebook 1–13 统一使用 DeepSeek V4 Pro**（`deepseek-v4-pro`，OpenAI 兼容接口）：
+在对应目录配置 `.env`（勿提交）。**Notebook 1–13 统一使用 DeepSeek V4 Flash**（`deepseek-v4-flash`，OpenAI 兼容接口）：
 
 ```bash
 DEEPSEEK_API_KEY=sk-...
-# 可选，默认 https://api.deepseek.com
 DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-v4-flash
 ```
 
-Chatbot 子项目若仍用其他提供商，按其后端文件填写对应密钥；RAG / 工具场景可能还需要 Tavily 等。
+课程中的搜索、天气和航班工具使用本地 Mock 数据，无需额外第三方 Key。
 
 对照图：`demo.excalidraw`、`Persistence.excalidraw`、`HITL.excalidraw`、`Subgraphs.excalidraw`
 

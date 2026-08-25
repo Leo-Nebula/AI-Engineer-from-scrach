@@ -1,24 +1,14 @@
 import os 
 import re 
-import certifi
 import airportsdata
 import pycountry
-import requests
 from dotenv import load_dotenv
 
 load_dotenv()
 
-os.environ["SSL_CERT_FILE"] = certifi.where()
-os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
-
-API_KEY = os.getenv("AVIATIONSTACK_API_KEY")
-
 # Default origin when user says only destination, e.g. "Japan trip"
 # Change this if your default location is not Bangladesh/Dhaka.
 DEFAULT_ORIGIN_IATA = os.getenv("DEFAULT_ORIGIN_IATA", "DAC")
-
-
-BASE_URL = "https://api.aviationstack.com/v1/flights"
 
 
 AIRPORTS = airportsdata.load("IATA")
@@ -467,72 +457,62 @@ Arrival:
 
 
 def search_flights(query: str, limit: int = 10):
-    if not API_KEY:
-        return (
-            "Flight API error: AVIATIONSTACK_API_KEY is missing.\n"
-            "Please add this in your .env file:\n"
-            "AVIATIONSTACK_API_KEY=your_api_key_here"
-        )
-
     dep_iata, arr_iata = parse_route(query)
+    dep_iata = dep_iata or DEFAULT_ORIGIN_IATA
+    arr_iata = arr_iata or ("NRT" if dep_iata != "NRT" else "SIN")
 
-    params = {
-        "access_key": API_KEY,
-        "limit": min(limit, 100),
-    }
-
-    if dep_iata:
-        params["dep_iata"] = dep_iata
-
-    if arr_iata:
-        params["arr_iata"] = arr_iata
-
-    try:
-        response = requests.get(BASE_URL, params=params, timeout=30)
-        data = response.json()
-    except requests.exceptions.RequestException as e:
-        return f"Flight API request failed: {e}"
-    except ValueError:
-        return "Flight API returned invalid JSON."
-
-    if "error" in data:
-        error = data["error"]
-        return (
-            "Flight API error:\n"
-            f"Code: {error.get('code', 'Unknown')}\n"
-            f"Message: {error.get('message', 'Unknown error')}"
-        )
-
-    flight_data = data.get("data", [])
-
-    if not flight_data:
-        route_text = ""
-
-        if dep_iata and arr_iata:
-            route_text = f" for route {dep_iata} to {arr_iata}"
-        elif dep_iata:
-            route_text = f" from {dep_iata}"
-        elif arr_iata:
-            route_text = f" to {arr_iata}"
-
-        return (
-            f"No live flight data found{route_text}.\n\n"
-            "Note: AviationStack provides live/status flight data, not ticket prices. "
-            "For actual fare prices, use a flight-pricing API such as Amadeus."
-        )
-
-    route_info = "Global live flights"
-
-    if dep_iata and arr_iata:
-        route_info = f"Live flights from {dep_iata} to {arr_iata}"
-    elif dep_iata:
-        route_info = f"Live flights from {dep_iata}"
-    elif arr_iata:
-        route_info = f"Live flights to {arr_iata}"
-
-    formatted_flights = [format_flight(flight) for flight in flight_data[:limit]]
-
-    return f"{route_info}\n\n" + "\n\n---\n\n".join(formatted_flights)
+    dep_airport = AIRPORTS.get(dep_iata, {}).get("name", f"{dep_iata} Airport")
+    arr_airport = AIRPORTS.get(arr_iata, {}).get("name", f"{arr_iata} Airport")
+    mock_flights = [
+        {
+            "airline": {"name": "Demo Air"},
+            "flight": {"iata": "DM101"},
+            "flight_status": "scheduled (mock)",
+            "departure": {
+                "airport": dep_airport,
+                "iata": dep_iata,
+                "terminal": "1",
+                "gate": "A12",
+                "scheduled": "2026-09-15T08:30:00+00:00",
+                "delay": 0,
+            },
+            "arrival": {
+                "airport": arr_airport,
+                "iata": arr_iata,
+                "terminal": "2",
+                "gate": "B06",
+                "scheduled": "2026-09-15T14:10:00+00:00",
+                "delay": 0,
+            },
+        },
+        {
+            "airline": {"name": "Sample Airlines"},
+            "flight": {"iata": "SA208"},
+            "flight_status": "scheduled (mock)",
+            "departure": {
+                "airport": dep_airport,
+                "iata": dep_iata,
+                "terminal": "2",
+                "gate": "C03",
+                "scheduled": "2026-09-15T13:45:00+00:00",
+                "delay": 10,
+            },
+            "arrival": {
+                "airport": arr_airport,
+                "iata": arr_iata,
+                "terminal": "1",
+                "gate": "D09",
+                "scheduled": "2026-09-15T19:35:00+00:00",
+                "delay": 10,
+            },
+        },
+    ]
+    formatted_flights = [format_flight(flight) for flight in mock_flights[:limit]]
+    return (
+        f"Mock flight options from {dep_iata} to {arr_iata}\n"
+        "Data source: local demonstration fixture (not live fares or status).\n\n"
+        + "\n\n---\n\n".join(formatted_flights)
+    )
 
 
 if __name__ == "__main__":

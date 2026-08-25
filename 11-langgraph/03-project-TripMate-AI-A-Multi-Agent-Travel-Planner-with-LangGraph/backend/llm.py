@@ -9,7 +9,7 @@ if not DEEPSEEK_API_KEY:
     raise ValueError("DEEPSEEK_API_KEY is missing. Please add it to your .env file.")
 
 llm = ChatOpenAI(
-    model="deepseek-v4-pro",
+    model=os.getenv("DEEPSEEK_MODEL", "deepseek-v4-flash"),
     api_key=DEEPSEEK_API_KEY,
     base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
     temperature=0.7,

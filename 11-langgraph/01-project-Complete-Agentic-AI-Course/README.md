@@ -34,11 +34,11 @@
 ## 第 0 章：环境准备
 
 - Python **3.11+**（各子项目 README 均推荐 conda）
-- 常用密钥（按需配置到对应目录的 `.env`，勿提交）：
-  - `OPENAI_API_KEY`
-  - `TAVILY_API_KEY`
-  - `WEATHERSTACK_API_KEY`（单 Agent 天气工具）
-  - Google / Gemini 相关密钥（Chatbot RAG 等后端可能用到）
+- 常用配置可统一放在 `11-langgraph/.env`（勿提交）：
+  - `DEEPSEEK_API_KEY`
+  - `DEEPSEEK_BASE_URL=https://api.deepseek.com`
+  - `DEEPSEEK_MODEL=deepseek-v4-flash`
+- 搜索、天气和航班工具使用本地 Mock，无需第三方 Key
 - 推荐先读：[Building Effective Agents（Anthropic）](https://www.anthropic.com/engineering/building-effective-agents)
 
 ---
@@ -73,7 +73,7 @@
 | `research/agent_demo.ipynb` | Notebook 实验 |
 | `requirements.txt` | 依赖 |
 
-**技术栈：** LangChain · `create_react_agent` / `AgentExecutor` · Tavily · WeatherStack · Streamlit
+**技术栈：** LangChain · `create_agent` · 本地 Mock Tools · Notebook
 
 **学习路径**
 
@@ -92,8 +92,8 @@
 
 ```
 用户 Topic
-   → Search Agent（Tavily）
-   → Reader Agent（抓取网页）
+   → Search Agent（Mock 搜索）
+   → Reader Agent（Mock 内容）
    → Writer Chain（结构化报告）
    → Critic Chain（打分与改进建议）
    → Streamlit / CLI 输出

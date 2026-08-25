@@ -2,15 +2,15 @@
 
 在 `02-Langchain-Single-Agent` 单 Agent 基础上，把「搜索 → 阅读 → 写作 → 评审」拆成多个角色，由 `run_research_pipeline` 串成流水线，自动产出研究报告并打分。
 
-使用 **DeepSeek**（`deepseek-chat`）+ **Tavily** 搜索 + 网页抓取工具；适配 **LangChain 1.x**（`create_agent`）。
+使用 **DeepSeek**（`deepseek-v4-flash`）+ 本地 Mock 搜索/阅读工具；适配 **LangChain 1.x**（`create_agent`）。
 
-`.env` 需要：`DEEPSEEK_API_KEY`、`TAVILY_API_KEY`。
+`.env` 只需要 `DEEPSEEK_API_KEY`，工具调用不访问外网。
 
 ---
 
 ## 逻辑总览（彩色 Mermaid）
 
-下图展示整条研究流水线：用户输入主题后，Search / Reader 两个 **Agent**（可调工具）采集材料，Writer / Critic 两条 **Chain**（纯 Prompt → LLM）写报告并评审。带 **⚡ LLM** 标注的节点会调用 `deepseek-chat`；绿色工具节点不调 LLM。
+下图展示整条研究流水线：用户输入主题后，Search / Reader 两个 **Agent**（可调工具）采集材料，Writer / Critic 两条 **Chain**（纯 Prompt → LLM）写报告并评审。带 **⚡ LLM** 标注的节点会调用 `deepseek-v4-flash`；绿色工具节点不调 LLM。
 
 ```mermaid
 %%{init: {
@@ -25,7 +25,7 @@
 flowchart TD
     U([用户输入研究主题]) --> PIPE[run_research_pipeline]
     PIPE --> S1["① Search Agent<br/>⚡ LLM"]
-    S1 --> T1[web_search · Tavily]
+    S1 --> T1[web_search · Mock]
     T1 --> S1
     S1 --> S2["② Reader Agent<br/>⚡ LLM"]
     S2 --> T2[scrape_url]
@@ -82,7 +82,7 @@ Search / Reader 内部仍是 02 同款闭环（LLM 决策 → 调工具 → 写�
   }
 }}%%
 flowchart TD
-    MSG([messages]) --> LLM["deepseek-chat\n决定是否调工具"]
+    MSG([messages]) --> LLM["deepseek-v4-flash\n决定是否调工具"]
     LLM --> DEC{需要工具?}
     DEC -->|否| FA[本步最终内容]
     DEC -->|是| ACT[Tool Call]
@@ -111,8 +111,8 @@ flowchart TD
 
 | 组件 | 类型 | 职责 |
 |------|------|------|
-| **Search Agent** | `create_agent` + `web_search` | Tavily 检索标题 / URL / 摘要 |
-| **Reader Agent** | `create_agent` + `scrape_url` | 选相关 URL，多策略抽取正文 |
+| **Search Agent** | `create_agent` + `web_search` | 返回本地 Mock 标题 / URL / 摘要 |
+| **Reader Agent** | `create_agent` + `scrape_url` | 返回本地 Mock 正文 |
 | **Writer Chain** | `prompt \| llm \| parser` | 合成引言 / 发现 / 结论 / 来源；**按用户主题语言输出** |
 | **Critic Chain** | `prompt \| llm \| parser` | 打分（X/10）、优点、改进点、一句话评价 |
 
@@ -123,10 +123,9 @@ flowchart TD
 | 技术 | 用途 |
 |------|------|
 | LangChain 1.x | `create_agent`、Chain |
-| DeepSeek（`deepseek-chat`） | 智能体与 Chain 所用模型 |
+| DeepSeek（`deepseek-v4-flash`） | 智能体与 Chain 所用模型 |
 | Streamlit | Web UI |
-| Tavily | 网页搜索 |
-| BeautifulSoup / Trafilatura / Readability | 网页正文抽取 |
+| Local Mock Tools | 无网络的搜索与正文演示数据 |
 | python-dotenv | 环境变量 |
 | Rich | 终端输出 |
 
@@ -142,13 +141,13 @@ pip install -r requirements.txt
 
 ```bash
 DEEPSEEK_API_KEY=your_deepseek_api_key
-TAVILY_API_KEY=your_tavily_api_key
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-v4-flash
 ```
 
 - [DeepSeek 开放平台](https://platform.deepseek.com/api_keys)
-- [Tavily API](https://tavily.com)
 
-> DeepSeek 提供 OpenAI 兼容接口；代码通过 `base_url=https://api.deepseek.com` 调用。
+> DeepSeek 提供 OpenAI 兼容接口；搜索和阅读工具使用明确标注的本地 Mock 数据。
 
 ---
 

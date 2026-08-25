@@ -15,8 +15,8 @@
 
 ## 功能特性
 
-- ✈️ 基于 AviationStack 的航班调研
-- 🏨 基于 Tavily 搜索的酒店建议
+- ✈️ 基于本地 Mock 的航班调研
+- 🏨 基于本地 Mock 的酒店建议
 - 🧠 基于 LangGraph 的多智能体编排
 - 📝 结构化旅行行程生成
 - 🌐 FastAPI 后端 + 简易 Web 界面
@@ -32,8 +32,7 @@
 - LangChain
 - DeepSeek LLM（OpenAI 兼容 API）
 - SQLite（本地 checkpointer）
-- Tavily API
-- AviationStack API
+- 本地 Mock 旅行工具（无需第三方 Key）
 
 ## 项目结构
 
@@ -50,7 +49,7 @@
 │   │   ├── base.py                 # create_react_agent 封装
 │   │   ├── flight.py / hotel.py
 │   │   ├── itinerary.py / final.py
-│   ├── tools/                      # 原始 API + LangChain @tool 包装
+│   ├── tools/                      # 本地 Mock + LangChain @tool 包装
 │   ├── config.py                   # .env 与 SSL 初始化
 │   ├── database.py                 # SQLite checkpointer
 │   ├── graph.py                    # 多智能体顺序交接父图
@@ -65,10 +64,7 @@
 本地运行前请确认：
 
 - 已安装 Python 3.10 或更高版本
-- 已准备以下 API Key：
-  - DeepSeek
-  - Tavily
-  - AviationStack
+- 已准备 DeepSeek API Key
 
 ## 环境变量
 
@@ -76,10 +72,8 @@
 
 ```env
 DEEPSEEK_API_KEY=your_deepseek_api_key
-# 可选，默认 https://api.deepseek.com
-# DEEPSEEK_BASE_URL=https://api.deepseek.com
-AVIATIONSTACK_API_KEY=your_aviationstack_api_key
-TAVILY_API_KEY=your_tavily_api_key
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-v4-flash
 DEFAULT_ORIGIN_IATA=DAC
 ```
 
@@ -222,9 +216,9 @@ flowchart LR
          ├─ travel_graph.stream(..., stream_mode="updates")
          │    └─ graph.py  (顺序交接的 multi-agent 父图)
          │         ├─ flight_agent
-         │         │    └─ ReAct agent + tool: search_flights   (AviationStack)
+         │         │    └─ ReAct agent + tool: search_flights   (Mock)
          │         ├─ hotel_agent
-         │         │    └─ ReAct agent + tool: search_web       (Tavily)
+         │         │    └─ ReAct agent + tool: search_web       (Mock)
          │         ├─ itinerary_agent
          │         │    └─ ReAct agent + tool: search_web       (景点/交通补充)
          │         └─ final_agent
@@ -363,7 +357,7 @@ sequenceDiagram
         F->>L: 推理 / 是否调工具
         L-->>F: tool_calls 或最终结论
         F->>T: search_flights
-        T-->>F: AviationStack 结果
+        T-->>F: Mock 航班结果
     end
     F-->>G: flight_results + progress
 
@@ -372,7 +366,7 @@ sequenceDiagram
         H->>L: 推理 / 是否调工具
         L-->>H: tool_calls 或最终结论
         H->>T: search_web
-        T-->>H: Tavily 结果
+        T-->>H: Mock 酒店结果
     end
     H-->>G: hotel_results + progress
 

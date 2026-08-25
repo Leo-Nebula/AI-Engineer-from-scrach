@@ -19,13 +19,14 @@ _log("loading .env ...")
 load_dotenv()
 _log(".env loaded")
 
-# DeepSeek V4 Pro (OpenAI-compatible API)
-_log("creating ChatOpenAI (deepseek-v4-pro) ...")
+# DeepSeek V4 Flash (OpenAI-compatible API)
+_model = os.getenv("DEEPSEEK_MODEL", "deepseek-v4-flash")
+_log(f"creating ChatOpenAI ({_model}) ...")
 _api_key = os.getenv("DEEPSEEK_API_KEY")
 if not _api_key:
     _log("WARNING: DEEPSEEK_API_KEY is empty — set it in .env")
 llm = ChatOpenAI(
-    model="deepseek-v4-pro",
+    model=_model,
     api_key=_api_key or "missing-deepseek-api-key",
     base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
     temperature=0.7,

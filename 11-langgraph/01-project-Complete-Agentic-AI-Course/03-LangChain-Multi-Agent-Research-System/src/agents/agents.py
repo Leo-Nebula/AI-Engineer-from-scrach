@@ -10,9 +10,9 @@ load_dotenv()
 
 # Model Initialization — DeepSeek (OpenAI-compatible API)
 llm = ChatOpenAI(
-    model="deepseek-chat",
+    model=os.getenv("DEEPSEEK_MODEL", "deepseek-v4-flash"),
     api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com",
+    base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
     temperature=0,
 )
 
@@ -86,4 +86,3 @@ One line verdict:
 ])
 
 critic_chain = critic_prompt | llm | StrOutputParser()
-
