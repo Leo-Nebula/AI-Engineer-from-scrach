@@ -81,7 +81,7 @@ DEFAULT_ORIGIN_IATA=DAC
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -397,14 +397,6 @@ sequenceDiagram
 4. `itinerary_agent`（ReAct）综合上游结果，必要时再搜索补充景点/交通
 5. `final_agent`（ReAct，无工具）把各 specialist briefing 润色成最终回复
 
-## 参与贡献
-
-欢迎贡献。如果你想改进应用、增加旅行能力或修复问题：
-
-1. Fork 本仓库
-2. 创建功能分支
-3. 提交你的改动
-4. 发起 Pull Request
 
 ## 致谢
 

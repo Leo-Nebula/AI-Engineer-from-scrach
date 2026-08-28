@@ -11,14 +11,13 @@
 
 ## Quick Start
 
-### 1. 环境准备（推荐 Windows 原生）
+### 1. 环境准备（mac的）
 
 ```bash
 cd 02-Agentic-Chatbot-using-LangGraph
 
-# 若目录里还有 WSL 建的 .venv，先删掉或改名后再建 Windows venv
 python -m venv .venv
-.venv\Scripts\activate
+source .venv/bin/activate
 
 pip install -r requirements.txt
 ```

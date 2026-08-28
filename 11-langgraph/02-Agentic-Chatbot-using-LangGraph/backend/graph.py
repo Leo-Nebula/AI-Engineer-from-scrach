@@ -19,6 +19,7 @@ logger = get_logger(__name__)
 
 
 class ChatState(TypedDict):
+    # Annotated 本身不会修改列表，它只是给这个类型附加一条元数据
     messages: Annotated[list[BaseMessage], add_messages]
 
 

@@ -79,7 +79,7 @@ def _process_uploaded_pdf(uploaded_pdf) -> None:
         if temporary_file_path and os.path.exists(temporary_file_path):
             os.remove(temporary_file_path)
 
-
+# 从这里前端输入，然后会发到后端 graph的chatbot
 def _stream_assistant_response(user_input: str):
     thread_id = st.session_state["thread_id"]
     config = {
