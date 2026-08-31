@@ -1,0 +1,12 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "4d5ab3d6d48c807b422ebc7dab161c8c4a1ab94b",
+  "prompts": {},
+  "humans": {
+    "h_67284b7cc638ff": {
+      "author": "zzg <zhenguo.zhu@ly.com>"
+    }
+  }
+}
