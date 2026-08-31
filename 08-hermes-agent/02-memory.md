@@ -1,7 +1,5 @@
 # Hermes Agent Memory 四层体系
 
-https://www.youtube.com/watch?v=ZKZLko9kLm4&list=PLmpUb_PWAkDx-VWjh00tVCji794xAa_IX&index=4
-
 多数人不知道：从第一次开机对话起，**内置 Memory 一直在静默读写**。本篇拆开 Layer 1 的机制，再讲可叠加的三层扩展。
 
 ---
