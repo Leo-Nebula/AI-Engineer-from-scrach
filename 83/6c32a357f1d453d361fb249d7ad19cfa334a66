@@ -1,0 +1,108 @@
+14-deepseek-harness/cordis/README.md
+  h_67284b7cc638ff 1-33
+14-deepseek-harness/01.arch.md
+  h_67284b7cc638ff 23
+14-deepseek-harness/cordis原理/dsh-cordis-code-example.md
+  h_67284b7cc638ff 1-255
+14-deepseek-harness/cordis/coffeeshop/README.md
+  h_67284b7cc638ff 1-55
+"14-deepseek-harness/DeepSeek Harness深度拆解.html"
+  s_52d191f1e001a5::t_57f51cc2e5ea75 891-920
+  s_52d191f1e001a5::t_1a733041e1ef0d 1053-1095
+  s_52d191f1e001a5::t_f1dae5b984f511 396-470,560,562-563,595-597,614-617
+  s_52d191f1e001a5::t_27ddfda159faae 476
+  s_52d191f1e001a5::t_cef246425e2722 969-1009,1019,1021
+  s_52d191f1e001a5::t_baac8b0dea6064 1140,1144-1200,1300-1302
+  s_52d191f1e001a5::t_d50fdf2d9851bc 6-7,636-637,676,690,1392
+  s_52d191f1e001a5::t_bad156e4b12cdb 201
+  s_52d191f1e001a5::t_1b7a8ab758ae1d 1100-1104,1106,1108,1110,1112,1114,1119
+  s_52d191f1e001a5::t_6f5ed3c3074c6d 1517-1557
+  s_52d191f1e001a5::t_42295cc3f893d6 1010-1018,1020
+  s_52d191f1e001a5::t_c6283f9b14a312 1-5,8-200,202-395,539-559,564-589,592-594,599-613,630-635,638-645,649-675,677-689,691-890,921-968,1022-1052,1096-1099,1105,1107,1109,1111,1113,1115-1118,1120-1139,1141-1143,1304-1308,1330,1332-1362,1383-1391,1393-1516,1585-1627
+  s_52d191f1e001a5::t_b395208cd5050e 471-475,477-538,561,598,618-629
+  s_52d191f1e001a5::t_3a11bc15f78ff6 590-591
+  s_52d191f1e001a5::t_c6448233a0325a 646
+  s_52d191f1e001a5::t_9096265d3d1ab0 1201-1299
+  s_52d191f1e001a5::t_269460010f334c 647-648,1303
+  s_52d191f1e001a5::t_b0e93cdfc900ab 1309-1329,1331,1363-1382
+  s_52d191f1e001a5::t_4e18f8a68fede8 1558-1584
+14-deepseek-harness/cordis/01-service-inject.ts
+  h_67284b7cc638ff 1-43
+14-deepseek-harness/cordis/02-multiple-services.ts
+  h_67284b7cc638ff 1-35
+14-deepseek-harness/cordis/03-waterfall.ts
+  h_67284b7cc638ff 1-45
+14-deepseek-harness/cordis/04-waterfall-input.ts
+  h_67284b7cc638ff 1-39
+14-deepseek-harness/cordis/05-serial-bail.ts
+  h_67284b7cc638ff 1-41
+14-deepseek-harness/cordis/06-cross-plugin.ts
+  h_67284b7cc638ff 1-48
+14-deepseek-harness/cordis/07-coffeeshop.ts
+  h_67284b7cc638ff 1-187
+14-deepseek-harness/cordis/08-events.ts
+  h_67284b7cc638ff 1-64
+14-deepseek-harness/cordis/coffeeshop/01-dependency-load.ts
+  h_67284b7cc638ff 1-31
+14-deepseek-harness/cordis/coffeeshop/02-water-shutdown.ts
+  h_67284b7cc638ff 1-51
+14-deepseek-harness/cordis/coffeeshop/03-events.ts
+  h_67284b7cc638ff 1-56
+14-deepseek-harness/cordis/coffeeshop/ac.ts
+  h_67284b7cc638ff 1-43
+14-deepseek-harness/cordis/coffeeshop/cleaning.ts
+  h_67284b7cc638ff 1-36
+14-deepseek-harness/cordis/coffeeshop/coffee.ts
+  h_67284b7cc638ff 1-78
+14-deepseek-harness/cordis/coffeeshop/common.ts
+  h_67284b7cc638ff 1-171
+14-deepseek-harness/cordis/coffeeshop/floor.ts
+  h_67284b7cc638ff 1-61
+14-deepseek-harness/cordis/coffeeshop/fridge.ts
+  h_67284b7cc638ff 1-43
+14-deepseek-harness/cordis/coffeeshop/ready.ts
+  h_67284b7cc638ff 1-74
+14-deepseek-harness/cordis/coffeeshop/services.ts
+  h_67284b7cc638ff 1-63
+14-deepseek-harness/cordis/package-lock.json
+  h_67284b7cc638ff 1-588
+14-deepseek-harness/cordis/package.json
+  h_67284b7cc638ff 1-27
+14-deepseek-harness/cordis/test.ts
+  h_67284b7cc638ff 1-25
+14-deepseek-harness/cordis/tsconfig.json
+  h_67284b7cc638ff 1-13
+14-deepseek-harness/cordis原理/dsh-cordis-core-mech.md
+  h_67284b7cc638ff 1-412
+14-deepseek-harness/cordis原理/dsh-cordis-story-only.md
+  h_67284b7cc638ff 1-54
+14-deepseek-harness/cordis原理/dsh-cordis-summary.md
+  h_67284b7cc638ff 1-17
+14-deepseek-harness/cordis原理/dsh-extension-cordis-full-story.md
+  h_67284b7cc638ff 1-737
+14-deepseek-harness/dsh-agent-loop.md
+  h_67284b7cc638ff 1-64
+14-deepseek-harness/dsh-tool-llm-reliability.md
+  h_67284b7cc638ff 1-67
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "836c32a357f1d453d361fb249d7ad19cfa334a66",
+  "prompts": {},
+  "humans": {
+    "h_67284b7cc638ff": {
+      "author": "zzg <zhenguo.zhu@ly.com>"
+    }
+  },
+  "sessions": {
+    "s_52d191f1e001a5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09a51-f9cd-7aa2-a86d-093d112d2a5b",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zzg <zhenguo.zhu@ly.com>"
+    }
+  }
+}
