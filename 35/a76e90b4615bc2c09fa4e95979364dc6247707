@@ -1,0 +1,14 @@
+"14-deepseek-harness/DeepSeek Harness 产品机制与运行逻辑.md"
+  h_67284b7cc638ff 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "35a76e90b4615bc2c09fa4e95979364dc6247707",
+  "prompts": {},
+  "humans": {
+    "h_67284b7cc638ff": {
+      "author": "zzg <zhenguo.zhu@ly.com>"
+    }
+  }
+}
