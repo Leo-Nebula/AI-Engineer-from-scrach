@@ -2,7 +2,7 @@
 
 ## Brief
 
-本文从产品机制出发，说明 DeepSeek Harness 与常见 Harness 的结构差异、Everything is a Plugin 的含义、Host 与 Agent 的两层装配过程，以及任务在 Agent Loop 中的完整流转。文章保留“员工与办公室”的类比，帮助读者理解开放式 Agent Harness 的架构、能力边界与当前成熟度。
+本文从产品机制出发，说明 DeepSeek Harness 与常见 Harness 的结构差异、Everything is a Plugin 的含义、Host 与 Agent 的两层装配过程，以及任务在 Agent Loop 中的完整流转。文章保留“员工与办公室”的类比，帮助理解开放式 Agent Harness 的架构、能力边界与当前成熟度。
 
 ## 一、DeepSeek Harness 与常见 Harness 的结构差异
 
