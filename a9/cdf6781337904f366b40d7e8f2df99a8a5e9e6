@@ -1,0 +1,25 @@
+"14-deepseek-harness/DeepSeek Harness 产品机制与运行逻辑.md"
+  s_52d191f1e001a5::t_85df32e9d0bc7e 1-62,64-87,89-103,105-116,118-124,126-143
+  s_52d191f1e001a5::t_b396528977317f 63,88,104,117,125,144
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a9cdf6781337904f366b40d7e8f2df99a8a5e9e6",
+  "prompts": {},
+  "humans": {
+    "h_67284b7cc638ff": {
+      "author": "zzg <zhenguo.zhu@ly.com>"
+    }
+  },
+  "sessions": {
+    "s_52d191f1e001a5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a09a51-f9cd-7aa2-a86d-093d112d2a5b",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zzg <zhenguo.zhu@ly.com>"
+    }
+  }
+}
